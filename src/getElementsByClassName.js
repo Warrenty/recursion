@@ -6,11 +6,13 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className){
 	var elementsArr = [];
+	if (_.contains(document.body.classList,className)) {
+		elementsArr.push(document.body);
+	}
 	goThroughNodes(document.body.childNodes);
 	return elementsArr;
 
-	function goThroughNodes(parent) {
-		
+	function goThroughNodes(parent) {	
 		for (var i = 0; i<parent.length; i++) {
 			var node = parent[i]
 			var nodeClass = node.classList;
